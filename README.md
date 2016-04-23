@@ -1,5 +1,5 @@
 # frontend
 
-Frontend Web Application (angular app)
+Frontend Web Application (angular app).
 
-Documentation would be real nice.
+See `ANGULAR_README.md` for information about development.
