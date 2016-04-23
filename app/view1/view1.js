@@ -9,6 +9,25 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
+.controller('View1Ctrl', ['$scope', 'auth', function($scope, auth) {
+
+  function onLoginSuccess(profile, token) {
+    console.log(profile);
+    console.log(token);
+  }
+
+  function onLoginFailed(error) {
+    console.log("FAILED");
+    console.log(error);
+  }
+
+  $scope.loginWithFacebook = function() {
+    auth.signin({
+      popup: true,
+      connection: 'facebook',
+      scope: 'openid name email'
+    }, onLoginSuccess, onLoginFailed);
+
+  };
 
 }]);
