@@ -9,17 +9,14 @@
         <div class="tblaze-trail-map">
 
             <ui-gmap-google-map center="trail.path[0]" zoom="15" options="{ zoomControl: true }">
-                <ui-gmap-polygon
+                <ui-gmap-polyline
                         path='trail.path'
-                        fill='map.fill'
                         stroke='map.stroke'
-                        static='true'
                         clickable='false'
                         editable="false"
                         draggable="false"
                         fit="true"
-
-                ></ui-gmap-polygon>
+                ></ui-gmap-polyline>
             </ui-gmap-google-map>
         </div>
 
@@ -28,7 +25,7 @@
             <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 1em;">
             <div class="col col-xs-6 tblaze-trail-stats">
                 <span class="tblaze-trail-stats-length">
                     {{ trail.trailLen | extract_miles }}<small title="miles">mi</small>
@@ -49,17 +46,11 @@
             </div>
         </div>
 
-        <div class="tblaze-trail-info" style="margin-top: 1em;">
-            <p>
-                This is displayed when the user has not started the trail yet.
-                We want to encourage them to click the button.
-            </p>
-        </div>
-
         <div ng-if=" ! authenticated">
 
             <p>
-                Explain the benefit to the user for logging in here.
+                Leave your mark, and log your trail visit!
+                Login with Facebook or STRAVA to get started.
             </p>
 
             <div class="tblaze-trail-action">
@@ -68,6 +59,11 @@
             </div>
         </div>
         <div ng-if="authenticated">
+
+            <p>
+                Explain the benefit to the user for logging in here.
+            </p>
+
             <div class="tblaze-trail-action row">
 
                 <div class="col-xs-4 tblaze-finger-button">
