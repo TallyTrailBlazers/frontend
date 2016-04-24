@@ -11,7 +11,28 @@
             <h1 class="tblaze-trail-name">Trail Name Here</h1>
         </header>
 
-        <div class="tblaze-trail-info">
+        <div class="row">
+            <div class="col col-xs-6 tblaze-trail-stats">
+                <span class="tblaze-trail-stats-length">
+                    6.5<small>mi</small>
+                </span>
+                <span class="tblaze-trail-stats-difficulty">
+                    Difficulty: <span class="tblaze-difficulty-beginner">Beginner</span>
+                </span>
+            </div>
+            <div class="col col-xs-6 tblaze-trail-weather">
+                <span class="tblaze-trail-weather-value">
+                    <span class="tblaze-trail-weather-temp">
+                        65&deg;F
+                    </span>
+                    <span class="tblaze-trail-weather-condition">
+                        Clear
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="tblaze-trail-info" style="margin-top: 1em;">
             <p>
                 This is displayed when the user has not started the trail yet.
                 We want to encourage them to click the button.
@@ -30,10 +51,22 @@
             </div>
         </div>
         <div ng-if="authenticated">
-            <div class="tblze-trail-action">
-                <button class="btn btn-block btn-primary" ng-click="startActivity('hike')">Hike It</button>
-                <button class="btn btn-block btn-primary" ng-click="startActivity('bike')">Bike It</button>
-                <button class="btn btn-block btn-primary" ng-click="startActivity('run')">Run It</button>
+            <div class="tblaze-trail-action row">
+
+                <div class="col-xs-4 tblaze-finger-button">
+                    <span>Hike It</span>
+                    <button class="btn btn-primary" ng-click="startActivity('hike')"><img src="/img/activity_hike.png"></button>
+                </div>
+
+                <div class="col-xs-4 tblaze-finger-button">
+                    <span>Bike It</span>
+                    <button class="btn btn-primary" ng-click="startActivity('bike')"><img src="/img/activity_bike.png"></button>
+                </div>
+
+                <div class="col-xs-4 tblaze-finger-button">
+                    <span>Run It</span>
+                    <button class="btn btn-primary" ng-click="startActivity('run')"><img src="/img/activity_run.png"></button>
+                </div>
             </div>
         </div>
     </div>
