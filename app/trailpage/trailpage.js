@@ -48,9 +48,20 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
 
   $scope.startActivity = function(type) {
 
-    $scope.display_mode = 'started';
-    $scope.activity = { "type": type };
-    store.set('activity', $scope.activity);
+    var postData = { trailId: $scope.trail.trailId, type: type };
+
+    $http.post(API_BASE_URL + '/activities', postData).then(
+        function(successResp) {
+          $scope.display_mode = 'started';
+          $scope.activity = successResp.data.activity;
+          store.set('activity', $scope.activity);
+        },
+        function(/* fail */) {
+          $scope.display_mode = 'error';
+        }
+
+    );
+
   };
 
   $scope.finishActivity = function() {
