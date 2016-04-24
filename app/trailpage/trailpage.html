@@ -35,7 +35,7 @@
             <div class="col col-xs-12 tblaze-trail-weather">
                 <span class="tblaze-trail-weather-value">
                     <span class="tblaze-trail-weather-temp">
-                        Temp: {{ getTemperature() }}&deg;F | {{ weather.station.condition | capitalize }}
+                        {{ getTemperature() }}&deg;F - {{ weather.station.condition | capitalize }}
                         <span class="tblaze-trail-weather-icon">
                             <i class="wi wi-day-sunny"></i>
                         </span>
