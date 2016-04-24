@@ -152,3 +152,5 @@ html, body {
   position: absolute;
   z-index: -1;
 }
+
+.angular-google-map-container { height: 150px; margin-left: -1em; margin-right: -1em; }

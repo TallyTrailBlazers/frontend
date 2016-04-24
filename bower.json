@@ -15,6 +15,7 @@
     "bootstrap": "~3.0",
     "auth0-angular": "~4.1",
     "a0-angular-storage": "0.0.15",
-    "angular-input-stars": "~1.5"
+    "angular-input-stars": "~1.5",
+    "angular-google-maps": "~2.3.2"
   }
 }

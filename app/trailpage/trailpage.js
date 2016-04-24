@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-stars'])
+angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-stars', 'uiGmapgoogle-maps'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/trail/:id', {
@@ -10,6 +10,12 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
 }])
 
 .controller('TrailPageCtrl', ['$scope', '$routeParams', '$http', 'auth', 'store', function($scope, $routeParams, $http, auth, store) {
+
+  $scope.map = {
+    center: {latitude: 40.1451, longitude: -99.6680 },
+    fill: { color: "#FFF", opacity: "0" },
+    stroke: { color: 'red', weight: 2, opacity: 1 }
+  };
 
   $scope.trail    = {};
   $scope.activity = {};
@@ -84,7 +90,7 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
       function(successResp) {
         $scope.trail = successResp.data.trailData.trail;
         $scope.weather = successResp.data.trailData.weather[0];
-        console.log($scope.weather);
+        console.log(successResp.data);
       },
       function(/* failResp */) {
         $scope.display_mode = 'error';

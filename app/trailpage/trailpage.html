@@ -2,8 +2,20 @@
 
     <div class="tblaze-trail-welcome" ng-switch-when="not_started">
 
-        <div class="tblaze-trail-image">
+        <!--<div class="tblaze-trail-image">
             <img src="/img/trail_placeholder.jpg" alt="Trails are Pretty">
+        </div>-->
+
+        <div class="tblaze-trail-map">
+
+            <ui-gmap-google-map center="trail.path[0]" zoom="15" bounds="{}">
+                <ui-gmap-polygon
+                        path='trail.path'
+                        fill='map.fill'
+                        stroke='map.stroke'
+                        static='true'
+                ></ui-gmap-polygon>
+            </ui-gmap-google-map>
         </div>
 
         <header class="tblaze-trail-header">
