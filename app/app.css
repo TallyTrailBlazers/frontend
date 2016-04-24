@@ -73,6 +73,7 @@ html, body {
   left: 0;
   right: 0;
   padding-bottom: 0;
+
 }
 
 .tblaze-trail-action-fixed-bottom button {
@@ -100,7 +101,7 @@ html, body {
 .tblaze-finger-button button {
   padding: 1.5em 1em;
   border-radius: 50% !important;
-  margin-top: 10px;
+    box-shadow: 0 3px #EACB39;
 }
 
 .tblaze-finger-button button img {
