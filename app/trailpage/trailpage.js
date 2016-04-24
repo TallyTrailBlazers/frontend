@@ -19,7 +19,7 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
 
   $scope.trail    = {};
   $scope.tips     = store.get('tips') || [];
-  $scope.activity = {};
+  $scope.activity = store.get('activity') || {};
 
   $scope.feedback = {
     rank:    null,
@@ -49,6 +49,7 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   };
 
   $scope.loginWithStrava = function() {
+    alert("Strava Login not yet implemented");
     throw "Strava Login not implemented yet";
   };
 
