@@ -110,7 +110,7 @@
             </p>
         </div>
 
-        <div class="tblaze-trail-action" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1em;">
+        <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
             <button class="btn btn-block btn-primary" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
         </div>
     </div>
@@ -123,7 +123,7 @@
     <div class="tblaze-trail-finished" ng-switch-when="finished">
 
         <header>
-            <h2>Leave your Mark</h2>
+            <h2 style="text-align: center;">Rate your {{ activity.type | capitalize }}</h2>
         </header>
 
         <form novalidate ng-submit="submitFeedback(true)">
@@ -132,9 +132,11 @@
                 <input-stars max="5" ng-model="feedback.rank"></input-stars>
             </p>
 
+            <h2 style="text-align: center;">Leave your Mark</h2>
+
             <p class="tblaze-feedback-comments">
-                <label for="tblaze-feedback-comments">Add to the trail log</label>
-                <textarea ng-model="feedback.comment" class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments"></textarea>
+                <label for="tblaze-feedback-comments" class="sr-only">Add to the trail log</label>
+                <textarea ng-model="feedback.comment" class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments" placeholder="Add your comments to the trail log"></textarea>
             </p>
 
             <p class="tblaze-feedback-post-to-fb checkbox">
