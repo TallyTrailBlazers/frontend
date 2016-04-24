@@ -117,9 +117,38 @@ html, body {
   -webkit-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.75);
   -moz-box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.75);
   box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.75);
+  background-color: #fff;
 }
 
 .tblaze-trail-tips h3 {
   margin-top: 0;
   padding-top: 20px;
+}
+
+.tblaze-trail-started {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: -1em;
+  margin-right: -1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.tblaze-trail-started:after {
+  content: "";
+  background: url('/img/mcclay_gardens.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }

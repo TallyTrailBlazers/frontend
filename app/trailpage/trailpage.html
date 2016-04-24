@@ -85,6 +85,13 @@
             </p>
         </div>
 
+        <div class="tblaze-started-message">
+            <h1>Hit the Trail!</h1>
+
+            <p>
+                When you are done, return here to leave your mark.
+            </p>
+        </div>
 
         <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
             <button class="btn btn-block btn-primary" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
@@ -99,7 +106,7 @@
     <div class="tblaze-trail-finished" ng-switch-when="finished">
 
         <header class="tblaze-trail-header">
-            <p>Thanks for hiking|biking|skipping</p>
+            <p>Did you enjoy your {{ activity.type }}?</p>
             <h1 class="tblaze-trail-name">Trail Name Here</h1>
         </header>
 
@@ -119,7 +126,7 @@
             <p class="tblaze-feedback-post-to-fb checkbox">
                 <label>
                     <input type="checkbox" name="tblaze-feedback-post-to-facebook">
-                    Share it on Facebook
+                    Share on Facebook
                 </label>
             </p>
 
