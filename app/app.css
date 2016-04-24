@@ -96,6 +96,12 @@ html, body {
   line-height: 1.25em;
 }
 
+.tblaze-trail-weather-condition {
+  display: block;
+  font-size: 2em;
+  line-height: 1.25em;
+}
+
 .tblaze-finger-button {
   text-align: center;
 }
