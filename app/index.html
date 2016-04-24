@@ -23,15 +23,12 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <header class="tblaze-header">
-    <h2 class="tblaze-title">Tallahassee Trailblazers</h2>
-  </header>
-
   <div ng-view></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script> API_BASE_URL = 'http://tallytrailblazers.com:3000'; </script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>

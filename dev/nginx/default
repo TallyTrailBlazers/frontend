@@ -1,0 +1,11 @@
+server {
+        listen 8000;
+
+        root /work/app/;
+        index index.html;
+        server_name  _;
+
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+}

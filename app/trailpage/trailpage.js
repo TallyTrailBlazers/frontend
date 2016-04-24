@@ -9,12 +9,13 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   });
 }])
 
-.controller('TrailPageCtrl', ['$scope', '$http', 'auth', 'store', function($scope, $http, auth, store) {
+.controller('TrailPageCtrl', ['$scope', '$routeParams', '$http', 'auth', 'store', function($scope, $routeParams, $http, auth, store) {
 
+  $scope.trail    = {};
   $scope.activity = {};
 
   $scope.authenticated = store.get('profile') ? true : false;
-  $scope.display_mode  = 'not_started'; // TODO - If activity exists, then we initialize this differently
+  $scope.display_mode  = store.get('activity') ? 'started' : 'not_started';
 
   function onLoginSuccess(profile, token) {
     store.set('profile', profile);
@@ -40,9 +41,10 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   };
 
   $scope.startActivity = function(type) {
-    // Would do API call here to create a new activity object
+
     $scope.display_mode = 'started';
     $scope.activity = { "type": type };
+    store.set('activity', $scope.activity);
   };
 
   $scope.finishActivity = function() {
@@ -55,8 +57,39 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
 
     if (doFinish) {
       $scope.display_mode = 'submitted';
+      $scope.activity = {}; //unset activity
+      store.remove('activity');
     }
   };
+
+  $scope.getTemperature = function() {
+
+    if ( ! $scope.weather) {
+      return '';
+    }
+
+    for (var i = 0; i < $scope.weather.record.readings.length; i++) {
+      if ($scope.weather.record.readings[i].sensor_type == "Thermometer") {
+        return $scope.weather.record.readings[i].value;
+      }
+    }
+
+    return '';
+  };
+
+  //
+  // Initialize..
+  //
+  $http.get(API_BASE_URL + '/trails/' + $routeParams.id).then(
+      function(successResp) {
+        $scope.trail = successResp.data.trailData.trail;
+        $scope.weather = successResp.data.trailData.weather[0];
+        console.log($scope.weather);
+      },
+      function(/* failResp */) {
+        $scope.display_mode = 'error';
+      }
+  );
 
 }])
 
@@ -64,5 +97,16 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   return function(input, all) {
     var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
     return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+  }
+})
+
+.filter('extract_miles', function() {
+  return function(input) {
+    if ( ! input) {
+      return '';
+    }
+    var myRegex = /(.+?)(\s+mi)?(\s+?)?\/(.+)?/g;
+    var matches = myRegex.exec(input);
+    return matches[1];
   }
 });

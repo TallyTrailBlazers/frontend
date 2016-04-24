@@ -8,25 +8,25 @@
 
         <header class="tblaze-trail-header">
             <p>Welcome to the</p>
-            <h1 class="tblaze-trail-name">Trail Name Here</h1>
+            <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
         <div class="row">
             <div class="col col-xs-6 tblaze-trail-stats">
                 <span class="tblaze-trail-stats-length">
-                    6.5<small>mi</small>
+                    {{ trail.trailLen | extract_miles }}<small title="miles">mi</small>
                 </span>
                 <span class="tblaze-trail-stats-difficulty">
-                    Difficulty: <span class="tblaze-difficulty-beginner">Beginner</span>
+                    Difficulty: <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }}</span>
                 </span>
             </div>
             <div class="col col-xs-6 tblaze-trail-weather">
                 <span class="tblaze-trail-weather-value">
                     <span class="tblaze-trail-weather-temp">
-                        65&deg;F
+                        {{ getTemperature() }}&deg;F
                     </span>
                     <span class="tblaze-trail-weather-condition">
-                        Clear
+                        {{ weather.station.condition | capitalize }}
                     </span>
                 </span>
             </div>
@@ -105,14 +105,11 @@
 
     <div class="tblaze-trail-finished" ng-switch-when="finished">
 
-        <header class="tblaze-trail-header">
-            <p>Did you enjoy your {{ activity.type }}?</p>
-            <h1 class="tblaze-trail-name">Trail Name Here</h1>
+        <header>
+            <h2>Leave your Mark</h2>
         </header>
 
         <form novalidate ng-submit="submitFeedback(true)">
-
-            <h2>Leave your Mark</h2>
 
             <p class="tblaze-feedback-rating">
                 <input-stars max="5" ng-model="tester"></input-stars>
@@ -145,6 +142,19 @@
             <p>
                 You Rock!  Thanks for using TrailBlazers, and look for the
                 QR code on other Tallahassee trails!
+            </p>
+        </div>
+    </div>
+
+    <!-- ========== -->
+    <!-- When error -->
+    <!-- ========== -->
+
+    <div class="tblaze-trail-finished" ng-switch-when="error">
+        <div class="tblaze-trail-info">
+            <h2>Whoops!</h2>
+            <p>
+                Something went wrong.  An administrator will look into it.
             </p>
         </div>
     </div>

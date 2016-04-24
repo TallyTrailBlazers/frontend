@@ -1,0 +1,27 @@
+containers:
+  nginx:
+    setup:
+      - !UbuntuRelease { version: 16.04 }
+      - !Depends dev/nginx/default
+      - !Install [software-properties-common]
+      - !Sh add-apt-repository ppa:nginx/stable -y && apt-get update
+      - !Install [nginx]
+      - !Copy
+        source: /work/dev/nginx/default
+        path:   /etc/nginx/sites-available/default
+    volumes:
+      /var: !Tmpfs
+       mode: 0o766
+       subdirs:
+         lib:
+         lib/nginx:
+         log: #default mode is 0o766
+         log/nginx: { mode: 0o1777 }
+commands:
+  run: !Supervise
+    description: Run the NGINX Server
+    mode: stop-on-failure
+    children:
+      nginx: !Command
+        container: nginx
+        run: nginx -g "daemon off;"

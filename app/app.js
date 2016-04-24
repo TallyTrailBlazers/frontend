@@ -10,7 +10,7 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config(['$routeProvider', '$httpProvider', '$locationProvider', 'authProvider', 'jwtInterceptorProvider', function($routeProvider, $httpProvider, $locationProvider, authProvider, jwtInterceptorProvider) {
-  $routeProvider.otherwise({redirectTo: '/trail/xyz'});
+  $routeProvider.otherwise({redirectTo: '/trail/1'});
 
   authProvider.init({
     domain:   'caseyamcl.auth0.com',
