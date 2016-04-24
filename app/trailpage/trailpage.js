@@ -18,6 +18,7 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   };
 
   $scope.trail    = {};
+  $scope.tips     = store.get('tips') || [];
   $scope.activity = {};
 
   $scope.feedback = {
@@ -58,8 +59,10 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
     $http.post(API_BASE_URL + '/activities', postData).then(
         function(successResp) {
           $scope.display_mode = 'started';
+          $scope.tips = successResp.data.tips;
           $scope.activity = successResp.data.activity;
           store.set('activity', $scope.activity);
+          store.set('tips', $scope.tips);
         },
         function(/* fail */) {
           $scope.display_mode = 'error';
