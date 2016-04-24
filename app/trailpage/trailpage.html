@@ -25,24 +25,20 @@
         </header>
 
         <div class="row" style="margin-bottom: 1em;">
-            <div class="col col-xs-6 tblaze-trail-stats">
+            <div class="col col-xs-12 tblaze-trail-stats">
                 <span class="tblaze-trail-stats-length">
-                    {{ trail.trailLen | extract_miles }}<small title="miles">mi</small>
-                </span>
-                <span class="tblaze-trail-stats-difficulty">
-                    Difficulty: <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }}</span>
+                    {{ trail.trailLen | extract_miles }}<small title="miles">mi</small> - <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }} Trail</span>
                 </span>
             </div>
-            <div class="col col-xs-6 tblaze-trail-weather">
+        </div>
+        <div class="row" style="margin-bottom: 1em;">
+            <div class="col col-xs-12 tblaze-trail-weather">
                 <span class="tblaze-trail-weather-value">
                     <span class="tblaze-trail-weather-temp">
-                        {{ getTemperature() }}&deg;F
-                    </span>
-                    <span class="tblaze-trail-weather-condition">
-                        {{ weather.station.condition | capitalize }}
-                    </span>
-                    <span class="tblaze-trail-weather-icon">
-                        <i class="wi wi-day-sunny"></i>
+                        Temp: {{ getTemperature() }}&deg;F | {{ weather.station.condition | capitalize }}
+                        <span class="tblaze-trail-weather-icon">
+                            <i class="wi wi-day-sunny"></i>
+                        </span>
                     </span>
                 </span>
             </div>
