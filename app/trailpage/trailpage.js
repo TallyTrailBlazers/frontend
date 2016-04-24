@@ -20,6 +20,11 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   $scope.trail    = {};
   $scope.activity = {};
 
+  $scope.feedback = {
+    rank:    null,
+    comment: null
+  };
+
   $scope.authenticated = store.get('profile') ? true : false;
   $scope.display_mode  = store.get('activity') ? 'started' : 'not_started';
 
@@ -59,7 +64,6 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
         function(/* fail */) {
           $scope.display_mode = 'error';
         }
-
     );
 
   };
@@ -70,17 +74,25 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
   };
 
   $scope.submitFeedback = function(doFinish) {
-    // Would do API call here to POST feedback
 
-    if (doFinish) {
-      $scope.display_mode = 'submitted';
-      $scope.activity = {}; //unset activity
-      store.remove('activity');
-    }
+    $http.post(API_BASE_URL + '/activities/' + $scope.activity.id, $scope.feedback).then(
+      function(successResp) {
+        $scope.activity = successResp.data.activity;
+        store.set('activity', $scope.activity);
+      },
+      function(/* fail */) {
+        $scope.display_mode = 'error';
+      }
+    ).finally(function() {
+      if (doFinish) {
+        $scope.display_mode = 'submitted';
+        $scope.activity = {}; //unset activity
+        store.remove('activity');
+      }
+    });
   };
 
   $scope.getTemperature = function() {
-
     if ( ! $scope.weather) {
       return '';
     }

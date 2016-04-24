@@ -129,12 +129,12 @@
         <form novalidate ng-submit="submitFeedback(true)">
 
             <p class="tblaze-feedback-rating">
-                <input-stars max="5" ng-model="tester"></input-stars>
+                <input-stars max="5" ng-model="feedback.rank"></input-stars>
             </p>
 
             <p class="tblaze-feedback-comments">
                 <label for="tblaze-feedback-comments">Add to the trail log</label>
-                <textarea class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments"></textarea>
+                <textarea ng-model="feedback.comment" class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments"></textarea>
             </p>
 
             <p class="tblaze-feedback-post-to-fb checkbox">
