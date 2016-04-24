@@ -4,18 +4,27 @@
 angular.module('myApp', [
   'ngRoute',
   'auth0',
-  'myApp.view1',
-  'myApp.view2',
+  'angular-storage',
+  'angular-jwt',
+  'myApp.trailpage',
   'myApp.version'
 ]).
-config(['$routeProvider', 'authProvider', function($routeProvider, authProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$routeProvider', '$httpProvider', '$locationProvider', 'authProvider', 'jwtInterceptorProvider', function($routeProvider, $httpProvider, $locationProvider, authProvider, jwtInterceptorProvider) {
+  $routeProvider.otherwise({redirectTo: '/trail/xyz'});
 
   authProvider.init({
     domain:   'caseyamcl.auth0.com',
     clientID: 'dMLFCrz1DGZjJCC3Jx5n9e9bttpllSAI',
     loginUrl: '/'
   });
+
+  jwtInterceptorProvider.tokenGetter = ['store', function(store) {
+    // Return the saved token
+    return store.get('token');
+  }];
+  $httpProvider.interceptors.push('jwtInterceptor');
+
+  $locationProvider.html5Mode(true);
 
 }]).
 run(function(auth) {

@@ -1,0 +1,113 @@
+<section class="tblaze-trail-content" ng-switch="display_mode">
+
+    <div class="tblaze-trail-welcome" ng-switch-when="not_started">
+
+        <div class="tblaze-trail-image">
+            <img src="/img/trail_placeholder.jpg" alt="Trails are Pretty">
+        </div>
+
+        <header class="tblaze-trail-header">
+            <p>Welcome to the</p>
+            <h1 class="tblaze-trail-name">Trail Name Here</h1>
+        </header>
+
+        <div class="tblaze-trail-info">
+            <p>
+                This is displayed when the user has not started the trail yet.
+                We want to encourage them to click the button.
+            </p>
+        </div>
+
+        <div ng-if=" ! authenticated">
+
+            <p>
+                Explain the benefit to the user for logging in here.
+            </p>
+
+            <div class="tblaze-trail-action">
+                <button class="btn btn-block btn-primary" ng-click="loginWithFacebook()">Login with Facebook</button>
+                <button class="btn btn-block btn-danger"  ng-click="loginWithStrava()">Login with STRAVA</button>
+            </div>
+        </div>
+        <div ng-if="authenticated">
+            <div class="tblze-trail-action">
+                <button class="btn btn-block btn-primary" ng-click="startActivity('hike')">Hike It</button>
+                <button class="btn btn-block btn-primary" ng-click="startActivity('bike')">Bike It</button>
+                <button class="btn btn-block btn-primary" ng-click="startActivity('run')">Run It</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ -->
+    <!-- When started -->
+    <!-- ============ -->
+
+    <div class="tblaze-trail-started" ng-switch-when="started">
+
+        <div class="tblaze-trail-info">
+            <p>
+                This is displayed when the user has clicked the button and they
+                are hiking the trail.  Show a button for them to finish it if they
+                are still within the allotted time.
+            </p>
+
+        </div>
+
+        <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
+            <button class="btn btn-block btn-primary" ng-click="finishActivity()">All Done</button>
+        </div>
+    </div>
+
+    <!-- ============= -->
+    <!-- When finished -->
+    <!-- ============= -->
+
+
+    <div class="tblaze-trail-finished" ng-switch-when="finished">
+
+        <header class="tblaze-trail-header">
+            <p>Thanks for hiking|biking|skipping</p>
+            <h1 class="tblaze-trail-name">Trail Name Here</h1>
+        </header>
+
+        <form novalidate ng-submit="submitFeedback(true)">
+
+            <h2>Leave your Mark</h2>
+
+            <p class="tblaze-feedback-rating">
+                <input-stars max="5" ng-model="tester"></input-stars>
+            </p>
+
+            <p class="tblaze-feedback-comments">
+                <label for="tblaze-feedback-comments">Add to the trail log</label>
+                <textarea class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments"></textarea>
+            </p>
+
+            <p class="tblaze-feedback-post-to-fb checkbox">
+                <label>
+                    <input type="checkbox" name="tblaze-feedback-post-to-facebook">
+                    Share it on Facebook
+                </label>
+            </p>
+
+            <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
+                <button class="btn btn-block btn-primary" ng-click="finishActivity()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ============== -->
+    <!-- When submitted -->
+    <!-- ============== -->
+
+    <div class="tblaze-trail-finished" ng-switch-when="submitted">
+        <div class="tblaze-trail-info">
+            <p>
+                You Rock!  Thanks for using TrailBlazers, and look for the
+                QR code on other Tallahassee trails!
+            </p>
+        </div>
+    </div>
+
+</section>
+</div>
