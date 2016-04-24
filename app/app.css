@@ -77,7 +77,13 @@ input, textarea {
   padding: 1em;
 }
 
-.tblaze-trail-action-fixed-bottom button {
+.tblaze-vertical-center {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.tblaze-trail-action-fixed-bottom button.btn-main-action {
   padding-top: 0.65em;
   padding-bottom: 0.65em;
   font-size: 1.3em;
@@ -145,3 +151,8 @@ input, textarea {
 }
 
 .angular-google-map-container { height: 150px; margin-left: -1em; margin-right: -1em; }
+
+.tblaze-feedback-post-to-fb {
+  margin-top: 1.5em;
+  font-size: 1.4em;
+}

@@ -24,27 +24,30 @@
             <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
-        <div class="row" style="margin-bottom: 1em;">
-            <div class="col col-xs-12 tblaze-trail-stats">
-                <span class="tblaze-trail-stats-length">
-                    {{ trail.trailLen | extract_miles }}<small title="miles">mi</small> - <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }} Trail</span>
-                </span>
+        <div class="tblaze-vertical-center">
+            <div class="row" style="margin-bottom: 1em;">
+                <div class="col col-xs-12 tblaze-trail-stats">
+                    <span class="tblaze-trail-stats-length">
+                        {{ trail.trailLen | extract_miles }}<small title="miles">mi</small> - <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }} Trail</span>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="row" style="margin-bottom: 1em;">
-            <div class="col col-xs-12 tblaze-trail-weather">
-                <span class="tblaze-trail-weather-value">
-                    <span class="tblaze-trail-weather-temp">
-                        {{ getTemperature() }}&deg;F - {{ weather.station.condition | capitalize }}
-                        <span class="tblaze-trail-weather-icon">
-                            <i class="wi wi-day-sunny"></i>
+
+            <div class="row" style="margin-bottom: 1em;">
+                <div class="col col-xs-12 tblaze-trail-weather">
+                    <span class="tblaze-trail-weather-value">
+                        <span class="tblaze-trail-weather-temp">
+                            {{ getTemperature() }}&deg;F - {{ weather.station.condition | capitalize }}
+                            <span class="tblaze-trail-weather-icon">
+                                <i class="wi wi-day-sunny"></i>
+                            </span>
                         </span>
                     </span>
-                </span>
+                </div>
             </div>
         </div>
 
-        <div ng-if=" ! authenticated">
+        <div ng-if=" ! authenticated" class="tblaze-trail-action-fixed-bottom">
 
             <p>
                 Leave your mark, and log your trail visit!
@@ -56,7 +59,8 @@
                 <button class="btn btn-block btn-danger"  ng-click="loginWithStrava()">Login with STRAVA</button>
             </div>
         </div>
-        <div ng-if="authenticated">
+
+        <div ng-if="authenticated" class="tblaze-trail-action-fixed-bottom">
             <div class="tblaze-trail-activity-question">
 
                 <p class="text-center">
@@ -79,6 +83,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- ============ -->
@@ -98,6 +103,9 @@
         </div>
 
         <div class="tblaze-started-message">
+
+            <img src="/img/trail_icon.png" style="display: block; margin: 1em auto; width: 60%;">
+
             <h1>Hit the Trail!</h1>
 
             <p>
@@ -107,7 +115,7 @@
         </div>
 
         <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
-            <button class="btn btn-block btn-primary" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
+            <button class="btn btn-block btn-success btn-main-action" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
         </div>
     </div>
 
@@ -143,7 +151,7 @@
             </p>
 
             <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
-                <button class="btn btn-block btn-primary" ng-click="finishActivity()">Submit</button>
+                <button class="btn btn-block btn-success btn-main-action" ng-click="finishActivity()">Submit</button>
             </div>
         </form>
     </div>
@@ -154,10 +162,17 @@
 
     <div class="tblaze-trail-finished" ng-switch-when="submitted">
         <div class="tblaze-trail-info">
-            <p>
-                You Rock!  Thanks for using TrailBlazers, and look for the
-                QR code on other Tallahassee trails!
-            </p>
+            <div class="tblaze-vertical-center" style="text-align: center;">
+
+                <img src="/img/rock_on.png" style="display: block; margin: 1em auto; width: 80%;">
+
+                <h2>Thanks! You Rock!</h2>
+
+                 <p>
+                     Thanks for using TrailBlazers, and look for the
+                     QR code on other Tallahassee trails!
+                 </p>
+            </div>
         </div>
     </div>
 
