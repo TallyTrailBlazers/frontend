@@ -91,6 +91,10 @@
     <div class="tblaze-trail-started tblaze-trail-started-{{ activity.type }}" ng-switch-when="started">
 
         <div class="tblaze-trail-tips">
+            <h4 style="margin: 0; padding-top: 10px; margin-bottom: 5px; text-align: center;">
+                <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                Trail Tips
+            </h4>
             <p>
                 {{ tips[0].text }}
             </p>
@@ -100,11 +104,12 @@
             <h1>Hit the Trail!</h1>
 
             <p>
-                When you are done, return here to leave your mark.
+                Trails aren't for phones!  But, when you're done,
+                come back and let us know.
             </p>
         </div>
 
-        <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
+        <div class="tblaze-trail-action" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1em;">
             <button class="btn btn-block btn-primary" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
         </div>
     </div>

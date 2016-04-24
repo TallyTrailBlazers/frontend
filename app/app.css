@@ -10,7 +10,7 @@ html, body {
 }
 
 /* Override Bootstrap stuff */
-* {
+input, textarea {
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
@@ -128,16 +128,11 @@ html, body {
   padding-top: 20px;
 }
 
-.tblaze-trail-started {
+.tblaze-started-message {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-left: -1em;
-  margin-right: -1em;
-  padding-left: 2em;
-  padding-right: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
 }
 
 .angular-google-map-container { height: 150px; margin-left: -1em; margin-right: -1em; }
