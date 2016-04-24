@@ -75,19 +75,19 @@
     <!-- When started -->
     <!-- ============ -->
 
-    <div class="tblaze-trail-started" ng-switch-when="started">
+    <div class="tblaze-trail-started tblaze-trail-started-{{ activity.type }}" ng-switch-when="started">
 
-        <div class="tblaze-trail-info">
+        <div class="tblaze-trail-tips">
+            <h3>Did you know&hellip;</h3>
             <p>
-                This is displayed when the user has clicked the button and they
-                are hiking the trail.  Show a button for them to finish it if they
-                are still within the allotted time.
+                This trail is a blah blah yadda yadda and what-not.  There
+                are really cool things about it.
             </p>
-
         </div>
 
+
         <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
-            <button class="btn btn-block btn-primary" ng-click="finishActivity()">All Done</button>
+            <button class="btn btn-block btn-primary" ng-click="finishActivity()">Finish {{ activity.type | capitalize }}</button>
         </div>
     </div>
 
