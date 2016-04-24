@@ -10,7 +10,12 @@ angular.module('myApp', [
   'myApp.version'
 ]).
 config(['$routeProvider', '$httpProvider', '$locationProvider', 'authProvider', 'jwtInterceptorProvider', function($routeProvider, $httpProvider, $locationProvider, authProvider, jwtInterceptorProvider) {
-  $routeProvider.otherwise({redirectTo: '/trail/1'});
+  $routeProvider
+  .when('/trail/:trailId', {
+        templateUrl: 'trailpage/trailpage.html',
+        controller: 'TrailPageCtrl'
+      })
+  .otherwise({redirectTo: '/trail/1'});
 
   authProvider.init({
     domain:   'caseyamcl.auth0.com',
