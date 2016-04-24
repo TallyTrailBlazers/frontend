@@ -5,6 +5,8 @@
 /* Basic stuff */
 html, body {
   overflow-x: hidden;
+  background-image: url('/img/concrete_pattern.png');
+  background-repeat: repeat;
 }
 
 /* Override Bootstrap stuff */
@@ -135,22 +137,6 @@ html, body {
   margin-right: -1em;
   padding-left: 2em;
   padding-right: 2em;
-}
-
-.tblaze-trail-started:after {
-  content: "";
-  background: url('/img/mcclay_gardens.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
 }
 
 .angular-google-map-container { height: 150px; margin-left: -1em; margin-right: -1em; }
