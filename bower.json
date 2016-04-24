@@ -11,6 +11,10 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "angular-jwt": "~0.0.9"
+    "angular-jwt": "~0.0.9",
+    "bootstrap": "~3.0",
+    "auth0-angular": "~4.1",
+    "a0-angular-storage": "0.0.15",
+    "angular-input-stars": "~1.5"
   }
 }
