@@ -15,7 +15,7 @@ config(['$routeProvider', '$httpProvider', '$locationProvider', 'authProvider', 
         templateUrl: 'trailpage/trailpage.html',
         controller: 'TrailPageCtrl'
       })
-  .otherwise({redirectTo: '/trail/9'});
+  .otherwise({redirectTo: '/trail/140'});
 
   authProvider.init({
     domain:   'caseyamcl.auth0.com',
