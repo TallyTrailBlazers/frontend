@@ -103,12 +103,12 @@ input, textarea {
 .tblaze-finger-button button {
   padding: 1.5em 1em;
   border-radius: 50% !important;
-    box-shadow: 0 3px #EACB39;
+  box-shadow: 0 1px #EACB39;
 }
 
 .tblaze-finger-button button img {
   width: 40px;
-  height: 30px;
+  height: 36px;
 }
 
 .tblaze-trail-tips {
@@ -133,6 +133,10 @@ input, textarea {
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
+}
+
+.tblaze-trail-activity-question {
+  margin-top: 50px;
 }
 
 .angular-google-map-container { height: 150px; margin-left: -1em; margin-right: -1em; }

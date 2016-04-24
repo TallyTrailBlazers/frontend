@@ -21,7 +21,6 @@
         </div>
 
         <header class="tblaze-trail-header">
-            <p>Welcome to the</p>
             <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
@@ -62,23 +61,25 @@
             </div>
         </div>
         <div ng-if="authenticated">
+            <div class="tblaze-trail-activity-question">
 
-            <p>
-               Why are you here?
-            </p>
+                <p class="text-center">
+                   Choose an activity.
+                </p>
 
-            <div class="tblaze-trail-action row">
+                <div class="tblaze-trail-action row">
 
-                <div class="col-xs-4 tblaze-finger-button">
-                    <button class="btn btn-success" ng-click="startActivity('hiking')"><img src="/img/activity_hike.png"></button>
-                </div>
+                    <div class="col-xs-4 tblaze-finger-button">
+                        <button class="btn btn-success" ng-click="startActivity('hiking')"><img src="/img/activity_hike.png"></button>
+                    </div>
 
-                <div class="col-xs-4 tblaze-finger-button">
-                    <button class="btn btn-success" ng-click="startActivity('biking')"><img src="/img/activity_bike.png"></button>
-                </div>
+                    <div class="col-xs-4 tblaze-finger-button">
+                        <button class="btn btn-success" ng-click="startActivity('biking')"><img src="/img/activity_bike.png"></button>
+                    </div>
 
-                <div class="col-xs-4 tblaze-finger-button">
-                    <button class="btn btn-success" ng-click="startActivity('running')"><img src="/img/activity_run.png"></button>
+                    <div class="col-xs-4 tblaze-finger-button">
+                        <button class="btn btn-success" ng-click="startActivity('running')"><img src="/img/activity_run.png"></button>
+                    </div>
                 </div>
             </div>
         </div>
