@@ -79,6 +79,14 @@ input, textarea {
 
 .tblaze-vertical-center {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1em;
+  right: 1em;
+}
+
+.tblaze-vertical-center-offset-10 {
+  position: absolute;
   top: 60%;
   transform: translateY(-50%);
 }

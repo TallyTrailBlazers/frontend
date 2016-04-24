@@ -24,7 +24,7 @@
             <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
-        <div class="tblaze-vertical-center">
+        <div class="tblaze-vertical-center-offset-10">
             <div class="row" style="margin-bottom: 1em;">
                 <div class="col col-xs-12 tblaze-trail-stats">
                     <span class="tblaze-trail-stats-length">
@@ -125,34 +125,43 @@
 
     <div class="tblaze-trail-finished" ng-switch-when="finished">
 
-        <header>
-            <h2 style="text-align: center;">Rate your {{ activity.type | capitalize }}</h2>
-        </header>
 
-        <form novalidate ng-submit="submitFeedback(true)">
+            <form novalidate ng-submit="submitFeedback(true)">
 
-            <p class="tblaze-feedback-rating">
-                <input-stars max="5" ng-model="feedback.rank"></input-stars>
-            </p>
+                <div class="tblaze-vertical-center">
+                    <header>
+                        <p>
+                            You just finished {{ activity.type }} the <strong>{{ trail.trailName }}</strong>!
+                        </p>
+                        <h2 style="text-align: center;">Rate your {{ activity.type | capitalize }}</h2>
+                    </header>
 
-            <h2 style="text-align: center;">Leave your Mark</h2>
+                    <p class="tblaze-feedback-rating">
+                    <input-stars max="5" ng-model="feedback.rank"></input-stars>
+                    </p>
 
-            <p class="tblaze-feedback-comments">
-                <label for="tblaze-feedback-comments" class="sr-only">Add to the trail log</label>
-                <textarea ng-model="feedback.comment" class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments" placeholder="Add your comments to the trail log"></textarea>
-            </p>
+                    <h2 style="text-align: center;">Leave your Mark</h2>
 
-            <p class="tblaze-feedback-post-to-fb checkbox">
-                <label>
-                    <input type="checkbox" name="tblaze-feedback-post-to-facebook">
-                    Share on Facebook
-                </label>
-            </p>
+                    <p class="tblaze-feedback-comments">
+                        <label for="tblaze-feedback-comments" class="sr-only">Add to the trail log</label>
+                        <textarea ng-model="feedback.comment" class="form-control" id="tblaze-feedback-comments" name="tblaze-feedback-comments" placeholder="Add your comments to the trail log"></textarea>
+                    </p>
 
-            <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
-                <button class="btn btn-block btn-success btn-main-action" ng-click="finishActivity()">Submit</button>
-            </div>
-        </form>
+                    <div style="text-align: center;">
+                        <p class="tblaze-feedback-post-to-fb">
+                            <label>
+                                <input type="checkbox" name="tblaze-feedback-post-to-facebook">
+                                Share on Facebook
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tblaze-trail-action tblaze-trail-action-fixed-bottom">
+                    <button class="btn btn-block btn-success btn-main-action" ng-click="finishActivity()">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- ============== -->
