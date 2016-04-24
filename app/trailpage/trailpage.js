@@ -90,7 +90,6 @@ angular.module('myApp.trailpage', ['ngRoute', 'angular-storage', 'angular-input-
       function(successResp) {
         $scope.trail = successResp.data.trailData.trail;
         $scope.weather = successResp.data.trailData.weather[0];
-        console.log(successResp.data);
       },
       function(/* failResp */) {
         $scope.display_mode = 'error';

@@ -8,12 +8,17 @@
 
         <div class="tblaze-trail-map">
 
-            <ui-gmap-google-map center="trail.path[0]" zoom="15" bounds="{}">
+            <ui-gmap-google-map center="trail.path[0]" zoom="15" options="{ zoomControl: true }">
                 <ui-gmap-polygon
                         path='trail.path'
                         fill='map.fill'
                         stroke='map.stroke'
                         static='true'
+                        clickable='false'
+                        editable="false"
+                        draggable="false"
+                        fit="true"
+
                 ></ui-gmap-polygon>
             </ui-gmap-google-map>
         </div>
