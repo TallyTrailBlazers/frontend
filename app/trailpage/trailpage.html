@@ -24,11 +24,12 @@
             <h1 class="tblaze-trail-name">{{ trail.trailName }}</h1>
         </header>
 
-        <div class="tblaze-vertical-center-offset-10">
-            <div class="row" style="margin-bottom: 0.5em;">
+        <div class="" style="text-align: center">
+            <div class="row" style="margin-bottom: 0.5em; margin-top: 2em;">
                 <div class="col col-xs-12 tblaze-trail-stats">
                     <span class="tblaze-trail-stats-length">
-                        {{ trail.trailLen | extract_miles }}<small title="miles">mi</small> - <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }} Trail</span>
+                        {{ trail.trailLen | extract_miles }}<small title="miles">mi</small><br />
+                        <span class="tblaze-difficulty-{{ trail.difficulty }}">{{ trail.difficulty | capitalize }} {{ trail.trailSurface | capitalize }} Trail</span>
                     </span>
                 </div>
             </div>
